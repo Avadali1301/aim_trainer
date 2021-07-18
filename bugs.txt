@@ -1,0 +1,16 @@
+
+
+creator: Avi Vadali
+
+Date: 27 June
+
+This is a list of known bugs in the aim_trainer program. I intend to reference this list and go back once I have the general framework down in order to resolve all of the bugs
+
+Bugs:
+	- Multithreading problems
+		- When a user moves his/her cursor from Target to Target too quickly, the while loop is not given enough time to properly sample points. This results in an approximation of a curve that is shorter than the shortest possible distance between the two Targets, because there are holes in the approximated curve. (RESOLVED)
+	
+		- Once a user hits a Target with his/her Cursor, the program waits a specifies 'spawnDelay,' then it respawns the Target. However, due to the nature of the program, during this 'spawnDelay,' none of the other Targets can be despawned because the program is waiting for the spawnDelay, meaning that it cannot go back through the loop to check the coordinates of the Cursor (RESOLVED)
+
+	- Others
+		- When spawning new Targets, make sure that the new Target does not overlap with any existing Targets (RESOLVED)
